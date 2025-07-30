@@ -30,14 +30,14 @@ export default function AboutPage() {
               <div className="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
                 <FileText className="w-6 h-6 text-slate-600" />
               </div>
-              <CardTitle className="text-2xl font-semibold text-slate-800 mb-1">Invoice Manager</CardTitle>
+              <CardTitle className="text-2xl font-semibold text-slate-800 mb-1">Makinvoiz</CardTitle>
               <p className="text-sm text-slate-500">Version 1.1.0</p>
             </CardHeader>
             <CardContent className="space-y-8 px-6">
               <div className="prose prose-slate max-w-none">
                 <h2 className="text-lg font-medium text-slate-800 mb-3">About</h2>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Invoice Manager is a professional quotation and billing system designed specifically for AC repair service providers. 
+                  Makinvoiz is a professional quotation and billing system designed specifically for companies. 
                   It streamlines the process of creating, managing, and tracking quotations and bills, helping you focus more on your 
                   business and less on paperwork.
                 </p>
