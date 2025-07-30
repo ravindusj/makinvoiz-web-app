@@ -9,9 +9,8 @@ import { AuthProvider } from "@/contexts/auth-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Invoice Manager",
-  description: "Professional quotation and billing system",
-    generator: 'v0.dev'
+  title: "makinvoiz",
+  description: "Professional invoice system for freelancers and small businesses"
 }
 
 export default function RootLayout({

@@ -92,7 +92,7 @@ export function Navbar() {
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <SwappingLogo />
-          <span className="font-semibold text-slate-800">Invoice Manager</span>
+          <span className="font-semibold text-slate-800">Makinvoiz</span>
         </Link>
 
         <div className="flex items-center gap-4">
