@@ -35,11 +35,11 @@ interface CompanySettings {
 export default function SettingsPage() {
   const { toast } = useToast()
   const [settings, setSettings] = useState<CompanySettings>({
-    companyName: "<your-company-name>",
-    companyAddress: "<your-company-address>",
-    companyPhone: "<your-company-mobile-no>",
-    companyEmail: "<your-company-email>",
-    companyWebsite: "<your-company-web>",
+    companyName: "loading...",
+    companyAddress: "loading...",
+    companyPhone: "loading...",
+    companyEmail: "loading...",
+    companyWebsite: "loading...",
     logoUrl: "",
     signatureUrl: "",
     defaultTerms: `1. Payment due within 15 days from the date of invoice, overdue interest @ 14% will be charged on delayed payments.
