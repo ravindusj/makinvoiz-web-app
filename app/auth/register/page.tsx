@@ -12,32 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { signUp } from "@/lib/auth"
 import { useToast } from "@/hooks/use-toast"
-import { Eye, EyeOff, Loader2, Receipt, CreditCard, FileText, Calculator } from "lucide-react"
-
-// Swapping Logo Component
-const SwappingLogo = () => {
-  const [currentIcon, setCurrentIcon] = useState(0)
-  const icons = [Receipt, CreditCard, FileText, Calculator]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIcon((prev) => (prev + 1) % icons.length)
-    }, 2000) // Change icon every 2 seconds
-
-    return () => clearInterval(interval)
-  }, [])
-
-  const IconComponent = icons[currentIcon]
-
-  return (
-    <div className="relative w-12 h-12 sm:w-16 sm:h-16 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-4 overflow-hidden">
-      <IconComponent
-        key={currentIcon}
-        className="w-6 h-6 sm:w-8 sm:h-8 text-white transition-all duration-500 ease-in-out transform hover:scale-110 animate-fade-in"
-      />
-    </div>
-  )
-}
+import { Eye, EyeOff, Loader2, Files } from "lucide-react"
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -103,7 +78,9 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-4">
       <Card className="w-full max-w-md border-0 shadow-lg">
         <CardHeader className="text-center">
-          <SwappingLogo />
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-4">
+            <Files className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+          </div>
           <CardTitle className="text-2xl font-bold text-slate-800">Create Account</CardTitle>
           <CardDescription>Sign up for your account</CardDescription>
         </CardHeader>

@@ -11,36 +11,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { FileText, LogOut, Settings, User, Receipt, CreditCard, Calculator } from "lucide-react"
+import { FileText, LogOut, Settings, User, Files } from "lucide-react"
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { useIsMobile } from "@/hooks/use-mobile"
-import { useState, useEffect } from "react"
-
-// Swapping Logo Component
-const SwappingLogo = () => {
-  const [currentIcon, setCurrentIcon] = useState(0)
-  const icons = [Receipt, CreditCard, FileText, Calculator]
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIcon((prev) => (prev + 1) % icons.length)
-    }, 2000) // Change icon every 2 seconds
-    
-    return () => clearInterval(interval)
-  }, [])
-
-  const IconComponent = icons[currentIcon]
-
-  return (
-    <div className="relative w-8 h-8 bg-cyan-600 rounded-sm flex items-center justify-center overflow-hidden">
-      <IconComponent
-        key={currentIcon}
-        className="w-5 h-5 text-white transition-all duration-500 ease-in-out transform hover:scale-110 animate-fade-in"
-      />
-    </div>
-  )
-}
 
 export function Navbar() {
   const { user, signOut } = useAuth()
@@ -91,7 +65,9 @@ export function Navbar() {
     <nav className="bg-white border-b border-slate-200 px-4 py-3">
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <SwappingLogo />
+          <div className="w-8 h-8 bg-lime-600 rounded-sm flex items-center justify-center">
+            <Files className="w-5 h-5 text-white" />
+          </div>
           <span className="font-semibold text-slate-800">Makinvoiz</span>
         </Link>
 
