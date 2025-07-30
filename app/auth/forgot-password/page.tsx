@@ -50,8 +50,8 @@ export default function ForgotPasswordPage() {
             <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-2 sm:p-4">
                 <Card className="w-full max-w-md border-0 shadow-lg mx-2 sm:mx-0">
                     <CardHeader className="text-center space-y-2 p-3 sm:p-6">
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4">
-                            <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-600" />
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-lime-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4">
+                            <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-lime-600" />
                         </div>
                         <CardTitle className="text-xl sm:text-2xl font-bold text-slate-800">Check Your Email</CardTitle>
                         <CardDescription className="text-sm sm:text-base">
@@ -70,7 +70,7 @@ export default function ForgotPasswordPage() {
                                         setSuccess(false)
                                         setEmail("")
                                     }}
-                                    className="text-cyan-500 hover:underline"
+                                    className="text-lime-500 hover:underline"
                                 >
                                     try again
                                 </button>
@@ -93,7 +93,7 @@ export default function ForgotPasswordPage() {
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-2 sm:p-4">
             <Card className="w-full max-w-md border-0 shadow-lg mx-2 sm:mx-0">
                 <CardHeader className="text-center space-y-2 p-3 sm:p-6">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-4">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-lime-600 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-4">
                         <Files className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                     </div>
                     <CardTitle className="text-xl sm:text-2xl font-bold text-slate-800">Forgot Password</CardTitle>
@@ -126,7 +126,7 @@ export default function ForgotPasswordPage() {
                         <div className="mt-6 sm:mt-0">
                             <Button
                                 type="submit"
-                                className="w-full h-10 sm:h-10 text-sm sm:text-base bg-cyan-600 hover:bg-cyan-700"
+                                className="w-full h-10 sm:h-10 text-sm sm:text-base bg-lime-600 hover:bg-lime-700"
                                 disabled={loading}
                             >
                                 {loading ? (
@@ -141,7 +141,7 @@ export default function ForgotPasswordPage() {
                         </div>
 
                         <div className="text-center mt-4">
-                            <Link href="/auth/login" className="text-sm sm:text-sm text-cyan-500 hover:underline inline-flex items-center">
+                            <Link href="/auth/login" className="text-sm sm:text-sm text-lime-500 hover:underline inline-flex items-center">
                                 <ArrowLeft className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
                                 Back to Login
                             </Link>

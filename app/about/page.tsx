@@ -46,25 +46,25 @@ export default function AboutPage() {
                 <div className="space-y-6">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
-                      <div className="px-2 py-0.5 bg-cyan-100 text-cyan-700 text-xs rounded-full">Latest</div>
+                      <div className="px-2 py-0.5 bg-lime-100 text-lime-700 text-xs rounded-full">Latest</div>
                       <h3 className="text-sm font-medium text-slate-800">Version 1.1.0</h3>
                       <span className="text-xs text-slate-500">- July 11, 2025</span>
                     </div>
                     <ul className="text-sm text-slate-600 space-y-2 list-none pl-0">
                       <li className="flex items-center space-x-2">
-                        <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
+                        <div className="w-1 h-1 bg-lime-400 rounded-full"></div>
                         <span>Fully redesigned mobile layout for improved user experience 📱</span>
                       </li>
                       <li className="flex items-center space-x-2">
-                        <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
+                        <div className="w-1 h-1 bg-lime-400 rounded-full"></div>
                         <span>Added signature pad to invoices for digital signing</span>
                       </li>
                       <li className="flex items-center space-x-2">
-                        <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
+                        <div className="w-1 h-1 bg-lime-400 rounded-full"></div>
                         <span>Added cookie-based login session handling</span>
                       </li>
                       <li className="flex items-center space-x-2">
-                        <div className="w-1 h-1 bg-cyan-400 rounded-full"></div>
+                        <div className="w-1 h-1 bg-lime-400 rounded-full"></div>
                         <span>General UI enhancements across the app</span>
                       </li>
                     </ul>

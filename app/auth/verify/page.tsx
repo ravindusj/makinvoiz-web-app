@@ -85,10 +85,10 @@ function VerifyPageContent() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-2 sm:p-4">
       <Card className="w-full max-w-md border-0 shadow-lg mx-2 sm:mx-0">
         <CardHeader className="text-center space-y-2 p-3 sm:p-6">
-          <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Mail className="w-8 h-8 text-cyan-600" />
+          <div className="w-16 h-16 bg-lime-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Mail className="w-8 h-8 text-lime-600" />
           </div>
-          <CardTitle className="text-xl sm:text-2xl font-bold text-cyan-800">Check Your Email</CardTitle>
+          <CardTitle className="text-xl sm:text-2xl font-bold text-lime-800">Check Your Email</CardTitle>
           <CardDescription className="text-center">
             {userEmail ? (
               <>We've sent a verification link to <strong>{userEmail}</strong></>
@@ -99,16 +99,16 @@ function VerifyPageContent() {
         </CardHeader>
         <CardContent className="p-3 sm:p-6 space-y-4">
           <Alert className="border-slate-200 bg-slate-50">
-            <CheckCircle className="h-4 w-4 text-cyan-600" />
-            <AlertDescription className="text-cyan-800">
+            <CheckCircle className="h-4 w-4 text-lime-600" />
+            <AlertDescription className="text-lime-800">
               <strong>Account created successfully!</strong> Please verify your email to continue.
             </AlertDescription>
           </Alert>
 
           <div className="space-y-3 text-sm text-slate-600">
             <div className="flex items-start space-x-3">
-              <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-cyan-600 font-bold text-xs">1</span>
+              <div className="w-6 h-6 bg-lime-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-lime-600 font-bold text-xs">1</span>
               </div>
               <div>
                 <p className="font-medium text-slate-700">Check your inbox</p>
@@ -117,8 +117,8 @@ function VerifyPageContent() {
             </div>
 
             <div className="flex items-start space-x-3">
-              <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-cyan-600 font-bold text-xs">2</span>
+              <div className="w-6 h-6 bg-lime-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-lime-600 font-bold text-xs">2</span>
               </div>
               <div>
                 <p className="font-medium text-slate-700">Click the verification link</p>
@@ -127,8 +127,8 @@ function VerifyPageContent() {
             </div>
 
             <div className="flex items-start space-x-3">
-              <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-cyan-600 font-bold text-xs">3</span>
+              <div className="w-6 h-6 bg-lime-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-lime-600 font-bold text-xs">3</span>
               </div>
               <div>
                 <p className="font-medium text-slate-700">Start using your account</p>
@@ -162,7 +162,7 @@ function VerifyPageContent() {
             <Button
               onClick={handleResendEmail}
               variant="outline"
-              className="w-full border-cyan-200 text-cyan-700 hover:bg-cyan-50"
+              className="w-full border-lime-200 text-lime-700 hover:bg-lime-50"
               disabled={resendLoading}
             >
               {resendLoading ? (
@@ -180,7 +180,7 @@ function VerifyPageContent() {
 
             <Button
               onClick={() => router.push("/auth/login")}
-              className="w-full bg-cyan-600 hover:bg-cyan-700"
+              className="w-full bg-lime-600 hover:bg-lime-700"
             >
               Back to Sign In
             </Button>
@@ -189,7 +189,7 @@ function VerifyPageContent() {
           <div className="text-center space-y-1.5 sm:space-y-2 mt-4 pt-4 border-t border-slate-200">
             <p className="text-sm text-slate-600">
               Need help?{" "}
-              <Link href="/about" className="text-cyan-500 hover:underline">
+              <Link href="/about" className="text-lime-500 hover:underline">
                 Contact support
               </Link>
             </p>
@@ -206,10 +206,10 @@ function VerifyPageLoading() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-2 sm:p-4">
       <Card className="w-full max-w-md border-0 shadow-lg mx-2 sm:mx-0">
         <CardHeader className="text-center space-y-2 p-3 sm:p-6">
-          <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Mail className="w-8 h-8 text-cyan-600" />
+          <div className="w-16 h-16 bg-lime-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Mail className="w-8 h-8 text-lime-600" />
           </div>
-          <CardTitle className="text-xl sm:text-2xl font-bold text-cyan-800">Loading...</CardTitle>
+          <CardTitle className="text-xl sm:text-2xl font-bold text-lime-800">Loading...</CardTitle>
           <CardDescription className="text-center">
             Preparing your verification page
           </CardDescription>

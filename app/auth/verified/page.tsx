@@ -41,10 +41,10 @@ export default function VerifiedPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-2 sm:p-4">
       <Card className="w-full max-w-md border-0 shadow-lg mx-2 sm:mx-0">
         <CardHeader className="text-center space-y-2 p-3 sm:p-6">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-4">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-lime-600 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-4">
             <Files className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
           </div>
-          <CardTitle className="text-xl sm:text-2xl font-bold text-cyan-800">You're Verified!</CardTitle>
+          <CardTitle className="text-xl sm:text-2xl font-bold text-lime-800">You're Verified!</CardTitle>
           <CardDescription>Your email has been successfully verified</CardDescription>
         </CardHeader>
         <CardContent className="p-3 sm:p-6">
@@ -69,7 +69,7 @@ export default function VerifiedPage() {
               <p className="text-sm text-slate-600 mb-2">
                 Redirecting to your account in
               </p>
-              <div className="text-2xl font-bold text-cyan-600 mb-2">
+              <div className="text-2xl font-bold text-lime-600 mb-2">
                 {countdown}
               </div>
               <p className="text-xs text-slate-500">
@@ -80,7 +80,7 @@ export default function VerifiedPage() {
             <div className="space-y-3">
               <Button
                 onClick={handleGoToAccount}
-                className="w-full h-10 sm:h-10 text-sm sm:text-base bg-cyan-600 hover:bg-cyan-700"
+                className="w-full h-10 sm:h-10 text-sm sm:text-base bg-lime-600 hover:bg-lime-700"
                 disabled={redirecting}
               >
                 {redirecting ? (
@@ -96,7 +96,7 @@ export default function VerifiedPage() {
               <Button
                 onClick={() => router.push("/auth/login")}
                 variant="outline"
-                className="w-full h-10 sm:h-10 text-sm sm:text-base border-cyan-200 text-cyan-700 hover:bg-cyan-50"
+                className="w-full h-10 sm:h-10 text-sm sm:text-base border-lime-200 text-lime-700 hover:bg-lime-50"
                 disabled={redirecting}
               >
                 Sign In Instead
@@ -106,7 +106,7 @@ export default function VerifiedPage() {
             <div className="text-center space-y-1.5 sm:space-y-2 mt-4 pt-4 border-t border-slate-200">
               <p className="text-sm sm:text-sm text-slate-600">
                 Need help getting started?{" "}
-                <Link href="/about" className="text-cyan-500 hover:underline">
+                <Link href="/about" className="text-lime-500 hover:underline">
                   Contact support
                 </Link>
               </p>

@@ -78,7 +78,7 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-4">
       <Card className="w-full max-w-md border-0 shadow-lg">
         <CardHeader className="text-center">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-4">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-lime-600 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-4">
             <Files className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
           </div>
           <CardTitle className="text-2xl font-bold text-slate-800">Create Account</CardTitle>
@@ -186,7 +186,7 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <Button type="submit" className="w-full bg-cyan-600 hover:bg-cyan-700" disabled={loading}>
+            <Button type="submit" className="w-full bg-lime-600 hover:bg-lime-700" disabled={loading}>
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -199,7 +199,7 @@ export default function RegisterPage() {
 
             <p className="text-center text-sm text-slate-600">
               Already have an account?{" "}
-              <Link href="/auth/login" className="text-cyan-500 hover:underline">
+              <Link href="/auth/login" className="text-lime-500 hover:underline">
                 Sign in
               </Link>
             </p>

@@ -104,16 +104,16 @@ function AuthCallbackContent() {
         return (
           <>
             <CardHeader className="text-center space-y-2 p-3 sm:p-6">
-              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Loader2 className="w-8 h-8 text-cyan-600 animate-spin" />
+              <div className="w-16 h-16 bg-lime-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Loader2 className="w-8 h-8 text-lime-600 animate-spin" />
               </div>
-              <CardTitle className="text-xl sm:text-2xl font-bold text-cyan-800">Verifying Your Email</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl font-bold text-lime-800">Verifying Your Email</CardTitle>
               <CardDescription>Please wait while we verify your email address...</CardDescription>
             </CardHeader>
             <CardContent className="p-3 sm:p-6">
-              <Alert className="border-cyan-200 bg-cyan-50">
-                <Loader2 className="h-4 w-4 text-cyan-600 animate-spin" />
-                <AlertDescription className="text-cyan-800">
+              <Alert className="border-lime-200 bg-lime-50">
+                <Loader2 className="h-4 w-4 text-lime-600 animate-spin" />
+                <AlertDescription className="text-lime-800">
                   Processing your email verification...
                 </AlertDescription>
               </Alert>
@@ -163,7 +163,7 @@ function AuthCallbackContent() {
               <div className="space-y-3">
                 <Button
                   onClick={() => router.push('/auth/verify')}
-                  className="w-full bg-cyan-600 hover:bg-cyan-700"
+                  className="w-full bg-lime-600 hover:bg-lime-700"
                 >
                   <Mail className="mr-2 h-4 w-4" />
                   Request New Verification Email
@@ -172,7 +172,7 @@ function AuthCallbackContent() {
                 <Button
                   onClick={() => router.push('/auth/login')}
                   variant="outline"
-                  className="w-full border-cyan-200 text-cyan-700 hover:bg-cyan-50"
+                  className="w-full border-lime-200 text-lime-700 hover:bg-lime-50"
                 >
                   Back to Sign In
                 </Button>
@@ -198,10 +198,10 @@ function AuthCallbackLoading() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-2 sm:p-4">
       <Card className="w-full max-w-md border-0 shadow-lg mx-2 sm:mx-0">
         <CardHeader className="text-center space-y-2 p-3 sm:p-6">
-          <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Loader2 className="w-8 h-8 text-cyan-600 animate-spin" />
+          <div className="w-16 h-16 bg-lime-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Loader2 className="w-8 h-8 text-lime-600 animate-spin" />
           </div>
-          <CardTitle className="text-xl sm:text-2xl font-bold text-cyan-800">Loading...</CardTitle>
+          <CardTitle className="text-xl sm:text-2xl font-bold text-lime-800">Loading...</CardTitle>
           <CardDescription>Preparing your verification page</CardDescription>
         </CardHeader>
       </Card>
