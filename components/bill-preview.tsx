@@ -471,131 +471,97 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
           }}
         >
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start mb-6 gap-4 md:gap-0">
-          <div className="flex items-center gap-3 w-full md:w-auto">
+        <div className="bg-blue-600 text-white p-6 rounded-t-lg mb-6 flex justify-between items-center">
+          <div className="flex items-center gap-4">
             {settings?.logoUrl ? (
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg overflow-hidden border border-slate-200 flex-shrink-0">
+              <div className="w-16 h-16 rounded-lg overflow-hidden bg-white p-2 flex-shrink-0">
                 <Image
                   src={settings.logoUrl}
                   alt="Company Logo"
-                  width={56}
-                  height={56}
+                  width={64}
+                  height={64}
                   className="w-full h-full object-contain"
                   priority
                 />
               </div>
             ) : (
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-lg md:text-xl">
-                  {data.companyName.substring(0, 2).toUpperCase()}
-                </span>
+              <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
+                <span className="text-blue-600 font-bold text-2xl">{data.companyName.substring(0, 2).toUpperCase()}</span>
               </div>
             )}
             <div className="min-w-0 flex-1">
-              <h1 className="text-xl md:text-2xl font-bold text-slate-800 break-words">
-                {data.companyName}
-              </h1>
-              <p className="text-slate-600 text-xs md:text-sm break-words">{data.companyAddress}</p>
+              <h1 className="text-2xl font-bold leading-tight break-words">{data.companyName}</h1>
+              <p className="text-blue-100 text-sm leading-tight break-words">{data.companyAddress}, {data.companyPhone}</p>
+              <p className="text-blue-100 text-sm leading-tight break-words">Bengaluru, Karnataka, India - 560055</p>
             </div>
           </div>
-          <div className="text-left md:text-right w-full md:w-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2">Bill</h2>
+          <div className="text-right">
+            <h2 className="text-4xl font-bold">Invoice</h2>
           </div>
-        </div> 
+        </div>
 
         {/* Company and Client Info */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-4 mb-6">
-          <div className="space-y-0.5">
-            <h3 className="font-semibold text-slate-800 mb-2 text-sm md:text-base">Bill by</h3>
-            <p className="text-slate-700 font-medium text-sm md:text-base break-words">{data.companyName}</p>
-            <p className="text-slate-600 text-xs md:text-sm whitespace-pre-line break-words">
-              {data.companyAddress}
-            </p>
-            <p className="text-slate-600 text-xs md:text-sm break-words">{data.companyPhone}</p>
-            <p className="text-slate-600 text-xs md:text-sm break-words">{data.companyEmail}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+          <div className="space-y-1">
+            <h3 className="font-semibold text-slate-800 mb-3 text-base border-b border-slate-300 pb-1">Billed to</h3>
+            <p className="text-slate-700 font-bold text-lg break-words">{data.clientName || "Studio Den"}</p>
+            <p className="text-slate-600 text-sm whitespace-pre-line break-words">{data.clientAddress || "305, 3rd Floor Orion mall, Bengaluru, Karnataka, India - 560055"}</p>
+            <div className="mt-4 space-y-1">
+              <div className="flex gap-4">
+                <span className="text-slate-600 text-sm font-semibold w-16">GST</span>
+                <span className="text-slate-700 text-sm">29PGCED1234KZ6</span>
+              </div>
+              <div className="flex gap-4">
+                <span className="text-slate-600 text-sm font-semibold w-16">PAN</span>
+                <span className="text-slate-700 text-sm">PGCED1234K</span>
+              </div>
+            </div>
           </div>
 
-          <div className="space-y-0.5">
-            <h3 className="font-semibold text-slate-800 mb-2 text-sm md:text-base">Bill to</h3>
-            <p className="text-slate-700 font-medium text-sm md:text-base break-words">
-              {data.clientName || "Client Name"}
-            </p>
-            <p className="text-slate-600 text-xs md:text-sm whitespace-pre-line break-words">
-              {data.clientAddress || "Client Address"}
-            </p>
-          </div>
-
-          <div>
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="text-slate-600 text-xs md:text-sm">Bill No:</span>
-                <span className="font-medium text-xs md:text-sm break-words">{data.billNumber}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-600 text-xs md:text-sm">Bill Date:</span>
-                <span className="font-medium text-xs md:text-sm">
-                  {new Date(data.billDate).toLocaleDateString()}
-                </span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-600 text-xs md:text-sm">Due Date:</span>
-                <span className="font-medium text-xs md:text-sm">
-                  {new Date(data.dueDate).toLocaleDateString()}
-                </span>
+          <div className="space-y-4">
+            <div className="bg-slate-50 p-4 rounded-lg">
+              <h3 className="font-semibold text-slate-800 mb-3 text-base">Invoice Details</h3>
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-slate-600 text-sm">Invoice #</span>
+                  <span className="font-medium text-sm">{data.billNumber || "003"}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-600 text-sm">Invoice Date</span>
+                  <span className="font-medium text-sm">{data.billDate ? new Date(data.billDate).toLocaleDateString('en-GB') : "FEB 19, 2020"}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-600 text-sm">Due Date</span>
+                  <span className="font-medium text-sm">{data.dueDate ? new Date(data.dueDate).toLocaleDateString('en-GB') : "FEB 19, 2020"}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Items Table */}
-        <div className="mb-6">
+        <div className="mb-8">
           {/* Desktop Table */}
           <div className="hidden md:block overflow-x-auto">
-            <table className="w-full border-collapse border border-slate-300">
+            <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-slate-100">
-                  <th className="border border-slate-300 p-3 text-left font-semibold text-sm">
-                    Item #/Item description
-                  </th>
-                  <th className="border border-slate-300 p-3 text-center font-semibold text-sm">
-                    Quantity
-                  </th>
-                  <th className="border border-slate-300 p-3 text-center font-semibold text-sm">
-                    Rate
-                  </th>
-                  {showDiscount && (
-                    <th className="border border-slate-300 p-3 text-center font-semibold text-sm">
-                      Discount
-                    </th>
-                  )}
-                  <th className="border border-slate-300 p-3 text-center font-semibold text-sm">
-                    Amount
-                    {showDiscount && <span className="text-xs font-normal block">(After Discount)</span>}
-                  </th>
+                <tr className="bg-blue-600 text-white">
+                  <th className="border border-blue-600 py-3 px-4 text-left font-semibold text-sm">Item #/Item description</th>
+                  <th className="border border-blue-600 py-3 px-4 text-center font-semibold text-sm">Qty.</th>
+                  <th className="border border-blue-600 py-3 px-4 text-center font-semibold text-sm">Rate</th>
+                  <th className="border border-blue-600 py-3 px-4 text-center font-semibold text-sm">Amount</th>
                 </tr>
               </thead>
               <tbody>
                 {data.items.map((item, index) => (
-                  <tr key={item.id}>
-                    <td className="border border-slate-300 p-3">
-                      <div className="font-medium text-sm break-words">
-                        {item.description || `Item ${index + 1}`}
-                      </div>
+                  <tr key={item.id} className="border-b border-slate-200">
+                    <td className="border-l border-r border-slate-200 p-4">
+                      <div className="font-medium text-sm text-slate-800">{index + 1}.</div>
+                      <div className="text-sm text-slate-600 break-words">{item.description || `Basic Web Development`}</div>
                     </td>
-                    <td className="border border-slate-300 p-3 text-center text-sm">
-                      {item.quantity}
-                    </td>
-                    <td className="border border-slate-300 p-3 text-center text-sm whitespace-nowrap">
-                      Rs. {formatCurrency(item.rate)}
-                    </td>
-                    {showDiscount && (
-                      <td className="border border-slate-300 p-3 text-center text-sm">
-                        {item.discountType === 'amount' ? `Rs. ${formatCurrency(item.discount)}` : `${item.discount}%`}
-                      </td>
-                    )}
-                    <td className="border border-slate-300 p-3 text-center font-medium text-sm whitespace-nowrap">
-                      Rs. {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}
-                    </td>
+                    <td className="border-r border-slate-200 p-4 text-center text-sm">{item.quantity}</td>
+                    <td className="border-r border-slate-200 p-4 text-center text-sm">₹ {formatCurrency(item.rate)}</td>
+                    <td className="border-r border-slate-200 p-4 text-right font-medium text-sm">₹ {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -607,7 +573,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
             {data.items.map((item, index) => (
               <div key={item.id} className="border border-slate-300 rounded-lg p-4 bg-slate-50">
                 <div className="font-medium text-sm mb-3 text-slate-800 break-words">
-                  {item.description || `Item ${index + 1}`}
+                  {index + 1}. {item.description || `Basic Web Development`}
                 </div>
                 <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-xs">
                   <div className="flex justify-between">
@@ -616,7 +582,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-600">Rate:</span>
-                    <span className="font-medium">Rs. {formatCurrency(item.rate)}</span>
+                    <span className="font-medium">₹ {formatCurrency(item.rate)}</span>
                   </div>
                   {showDiscount && (
                     <div className="flex justify-between">
@@ -626,8 +592,8 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                   )}
                   <div className="flex justify-between col-span-2 pt-2 border-t border-slate-300 mt-2">
                     <span className="text-slate-600 font-medium">Amount:</span>
-                    <span className="font-bold text-orange-600">
-                      Rs. {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}
+                    <span className="font-bold text-blue-600">
+                      ₹ {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}
                     </span>
                   </div>
                 </div>
@@ -637,112 +603,63 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
         </div>
 
         {/* Bottom Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <div className="space-y-4 md:space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-6">
             {/* Terms and Conditions */}
             {showTerms && (
               <div>
-                <h3 className="font-semibold text-slate-800 mb-2 md:mb-3 text-sm md:text-base">
-                  Terms and Conditions
-                </h3>
-                <p className="text-slate-600 text-xs md:text-sm whitespace-pre-line break-words">
-                  {data.terms}
-                </p>
+                <h3 className="font-semibold text-slate-800 mb-3 text-base">Terms and Conditions</h3>
+                <ol className="text-slate-600 text-sm space-y-2">
+                  <li>1. {data.terms || "Please pay within 15 days from the date of invoice, overdue interest @ 14% will be charged on delayed payments."}</li>
+                  <li>2. Please quote invoice number when remitting funds.</li>
+                </ol>
               </div>
             )}
 
             {/* Additional Notes */}
             {showNotes && (
               <div>
-                <h3 className="font-semibold text-slate-800 mb-2 md:mb-3 text-sm md:text-base">
-                  Additional Notes
-                </h3>
-                <p className="text-slate-600 text-xs md:text-sm whitespace-pre-line break-words">
-                  {data.notes}
+                <h3 className="font-semibold text-slate-800 mb-3 text-base">Additional Notes</h3>
+                <p className="text-slate-600 text-sm whitespace-pre-line break-words">
+                  {data.notes || "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'."}
                 </p>
-              </div>
-            )}
-
-            {/* Financial Information */}
-            {showFinancialInfo && userSettings && (userSettings.taxNumber || userSettings.bankDetails) && (
-              <div>
-                <h3 className="font-semibold text-slate-800 mb-2 md:mb-3 text-sm md:text-base">Financial Information</h3>
-                <div className="text-slate-600 text-xs md:text-sm space-y-1">
-                  {userSettings.taxNumber && (
-                    <div>
-                      <span className="font-medium">Tax Number:</span> {userSettings.taxNumber}
-                    </div>
-                  )}
-                  {userSettings.bankDetails && (
-                    <div>
-                      <span className="font-medium">Bank Details:</span>
-                      <div className="whitespace-pre-line break-words mt-1">{userSettings.bankDetails}</div>
-                    </div>
-                  )}
+                <div className="mt-4 text-sm text-slate-600">
+                  <p>For any enquiries, email us on <span className="font-medium">{data.companyEmail || "foobarlabs@gmail.com"}</span> or call us on</p>
+                  <p className="font-medium">{data.companyPhone || "+91 98765 43210"}</p>
                 </div>
               </div>
             )}
           </div>
 
-          <div className="space-y-3 md:space-y-4">
+          <div className="space-y-4">
             {/* Summary */}
-            <div className="border border-slate-300">
-              <div className="flex justify-between p-2 md:p-3 border-b border-slate-300">
-                <span className="font-medium text-xs md:text-sm">Sub Total</span>
-                <span className="font-medium text-xs md:text-sm">Rs. {formatCurrency(subtotal)}</span>
+            <div className="border border-slate-300 rounded-lg overflow-hidden">
+              <div className="flex justify-between p-4 border-b border-slate-300">
+                <span className="font-medium text-sm">Sub Total</span>
+                <span className="font-medium text-sm">₹{formatCurrency(subtotal)}</span>
               </div>
               {showDiscount && totalDiscount > 0 && (
-                <div className="flex justify-between p-2 md:p-3 border-b border-slate-300">
-                  <span className="font-medium text-xs md:text-sm">Discount</span>
-                  <span className="font-medium text-xs md:text-sm">Rs. {formatCurrency(totalDiscount)}</span>
+                <div className="flex justify-between p-4 border-b border-slate-300">
+                  <span className="font-medium text-sm">Discount(5%)</span>
+                  <span className="font-medium text-sm">- ₹{formatCurrency(totalDiscount)}</span>
                 </div>
               )}
-              <div className="flex justify-between p-2 md:p-3 bg-orange-600 text-white">
-                <span className="font-bold text-xs md:text-sm">Total Amount</span>
-                <span className="font-bold text-xs md:text-sm">Rs. {formatCurrency(showDiscount ? total : subtotal)}</span>
+              <div className="flex justify-between p-4 bg-blue-600 text-white">
+                <span className="font-bold text-lg">Total</span>
+                <span className="font-bold text-xl">₹{formatCurrency(showDiscount ? total : subtotal)}</span>
               </div>
             </div>
 
             {/* Total in Words */}
-            <div className="border border-slate-300 p-2 md:p-3">
-              <div className="font-medium mb-1 text-xs md:text-sm">Bill Total In Words:</div>
-              <div className="text-xs md:text-sm text-slate-600 break-words">
-                {numberToWords(showDiscount ? total : subtotal)} Sri Lankan Rupees Only
+            <div className="border border-slate-300 p-4 rounded-lg">
+              <div className="font-medium mb-2 text-sm">Invoice Total (in words)</div>
+              <div className="text-sm text-slate-600 break-words font-medium">
+                {numberToWords(showDiscount ? total : subtotal)} Rupees Only
               </div>
             </div>
           </div>
         </div>
 
-        {/* Signature - positioned at bottom right after additional notes */}
-        <div className="flex justify-end mt-8 md:mt-12 pr-4 md:pr-6">
-          <div className="inline-block">
-            {settings?.signatureUrl ? (
-              <div className="mb-0">
-                <Image
-                  src={settings.signatureUrl}
-                  alt="Authorized Signature"
-                  width={140}
-                  height={60}
-                  className="max-w-[140px] max-h-[60px] object-contain ml-2"
-                />
-                <div className="w-[140px] h-[1px] bg-slate-400"></div>
-              </div>
-            ) : (
-              <div className="w-24 md:w-32 h-12 md:h-16 mb-2 relative">
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-slate-400"></div>
-              </div>
-            )}
-            <p className="text-xs md:text-sm text-slate-600 mt-1">Authorized Signature</p>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="mt-8 md:mt-12 pt-3 md:pt-4 border-t border-slate-300 text-center">
-          <p className="text-slate-600 text-xs md:text-sm break-words px-2">
-            For any enquiries, email us on {data.companyEmail} or call us on{" "}
-            {data.companyPhone}
-          </p>
-        </div>
       </div>
     </div>
     </div>
