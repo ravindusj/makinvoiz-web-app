@@ -495,7 +495,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
             </div>
           </div>
           <div className="text-right">
-            <h2 className="text-4xl font-bold">Invoice</h2>
+            <h2 className="text-4xl font-bold">Bill</h2>
           </div>
         </div>
 
@@ -505,16 +505,6 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
             <h3 className="font-semibold text-slate-800 mb-3 text-base border-b border-slate-300 pb-1">Billed to</h3>
             <p className="text-slate-700 font-bold text-lg break-words">{data.clientName || "Studio Den"}</p>
             <p className="text-slate-600 text-sm whitespace-pre-line break-words">{data.clientAddress || "305, 3rd Floor Orion mall, Bengaluru, Karnataka, India - 560055"}</p>
-            <div className="mt-4 space-y-1">
-              <div className="flex gap-4">
-                <span className="text-slate-600 text-sm font-semibold w-16">GST</span>
-                <span className="text-slate-700 text-sm">29PGCED1234KZ6</span>
-              </div>
-              <div className="flex gap-4">
-                <span className="text-slate-600 text-sm font-semibold w-16">PAN</span>
-                <span className="text-slate-700 text-sm">PGCED1234K</span>
-              </div>
-            </div>
           </div>
 
           <div className="space-y-4">
@@ -522,15 +512,15 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
               <h3 className="font-semibold text-slate-800 mb-3 text-base">Invoice Details</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-slate-600 text-sm">Invoice #</span>
+                  <span className="text-slate-600 text-sm">Bill No.</span>
                   <span className="font-medium text-sm">{data.billNumber || "003"}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-600 text-sm">Invoice Date</span>
+                  <span className="text-slate-600 text-sm">Bill Date.</span>
                   <span className="font-medium text-sm">{data.billDate ? new Date(data.billDate).toLocaleDateString('en-GB') : "FEB 19, 2020"}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-600 text-sm">Due Date</span>
+                  <span className="text-slate-600 text-sm">Due Date.</span>
                   <span className="font-medium text-sm">{data.dueDate ? new Date(data.dueDate).toLocaleDateString('en-GB') : "FEB 19, 2020"}</span>
                 </div>
               </div>

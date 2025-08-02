@@ -586,8 +586,7 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                 <div>
                   <h3 className="font-semibold text-slate-800 mb-3 text-base">Terms and Conditions</h3>
                   <ol className="text-slate-600 text-sm space-y-2">
-                    <li>1. {data.terms || "Please pay within 15 days from the date of invoice, overdue interest @ 14% will be charged on delayed payments."}</li>
-                    <li>2. Please quote invoice number when remitting funds.</li>
+                    <li>{data.terms}</li>
                   </ol>
                 </div>
               )}
@@ -599,10 +598,6 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                   <p className="text-slate-600 text-sm whitespace-pre-line break-words">
                     {data.notes || "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'."}
                   </p>
-                  <div className="mt-4 text-sm text-slate-600">
-                    <p>For any enquiries, email us on <span className="font-medium">{data.companyEmail || "foobarlabs@gmail.com"}</span> or call us on</p>
-                    <p className="font-medium">{data.companyPhone || "+91 98765 43210"}</p>
-                  </div>
                 </div>
               )}
             </div>
@@ -624,7 +619,7 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                     )}
                     <div className="flex justify-between p-4 bg-emerald-600 text-white">
                       <span className="font-bold text-lg">Total</span>
-                      <span className="font-bold text-xl">Rs.{formatCurrency(showDiscount ? total : subtotal)}</span>
+                      <span className="font-bold text-lg">Rs.{formatCurrency(showDiscount ? total : subtotal)}</span>
                     </div>
                   </div>
 
