@@ -543,25 +543,25 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
         <div className="mb-8">
           {/* Desktop Table */}
           <div className="hidden md:block overflow-x-auto">
-            <table className="w-full border-collapse">
+            <table className="w-full border-collapse rounded-lg overflow-hidden">
               <thead>
                 <tr className="bg-orange-600 text-white">
-                  <th className="border border-orange-600 py-3 px-4 text-left font-semibold text-sm">Item #/Item description</th>
+                  <th className="border border-orange-600 py-3 px-4 text-left font-semibold text-sm first:rounded-tl-lg last:rounded-tr-lg">Item #/Item description</th>
                   <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm">Qty.</th>
                   <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm">Rate</th>
-                  <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm">Amount</th>
+                  <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm first:rounded-tl-lg last:rounded-tr-lg">Amount</th>
                 </tr>
               </thead>
               <tbody>
                 {data.items.map((item, index) => (
-                  <tr key={item.id} className="border-b border-slate-200">
-                    <td className="border-l border-r border-slate-200 p-4">
+                  <tr key={item.id} className="border-b border-slate-200 last:border-b-0">
+                    <td className="border-l border-r border-slate-200 p-4 first:border-l-0 last:border-r-0">
                       <div className="font-medium text-sm text-slate-800">{index + 1}.</div>
                       <div className="text-sm text-slate-600 break-words">{item.description || `Basic Web Development`}</div>
                     </td>
-                    <td className="border-r border-slate-200 p-4 text-center text-sm">{item.quantity}</td>
-                    <td className="border-r border-slate-200 p-4 text-center text-sm">₹ {formatCurrency(item.rate)}</td>
-                    <td className="border-r border-slate-200 p-4 text-right font-medium text-sm">₹ {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}</td>
+                    <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">{item.quantity}</td>
+                    <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">₹ {formatCurrency(item.rate)}</td>
+                    <td className="border-r border-slate-200 p-4 text-right font-medium text-sm last:border-r-0">₹ {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}</td>
                   </tr>
                 ))}
               </tbody>
