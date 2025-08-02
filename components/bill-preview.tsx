@@ -491,8 +491,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
             )}
             <div className="min-w-0 flex-1">
               <h1 className="text-2xl font-bold leading-tight break-words">{data.companyName}</h1>
-              <p className="text-orange-100 text-sm leading-tight break-words">{data.companyAddress}, {data.companyPhone}</p>
-              <p className="text-orange-100 text-sm leading-tight break-words">Bengaluru, Karnataka, India - 560055</p>
+              <p className="text-orange-100 text-sm leading-tight break-words">{data.companyAddress}</p>
             </div>
           </div>
           <div className="text-right">
@@ -549,6 +548,9 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                   <th className="border border-orange-600 py-3 px-4 text-left font-semibold text-sm first:rounded-tl-lg last:rounded-tr-lg">Item #/Item description</th>
                   <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm">Qty.</th>
                   <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm">Rate</th>
+                  {showDiscount && (
+                    <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm">Discount</th>
+                  )}
                   <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm first:rounded-tl-lg last:rounded-tr-lg">Amount</th>
                 </tr>
               </thead>
@@ -561,6 +563,11 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                     </td>
                     <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">{item.quantity}</td>
                     <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">₹ {formatCurrency(item.rate)}</td>
+                    {showDiscount && (
+                      <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">
+                        {item.discountType === 'amount' ? `₹ ${formatCurrency(item.discount)}` : `${item.discount}%`}
+                      </td>
+                    )}
                     <td className="border-r border-slate-200 p-4 text-right font-medium text-sm last:border-r-0">₹ {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}</td>
                   </tr>
                 ))}
@@ -587,7 +594,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                   {showDiscount && (
                     <div className="flex justify-between">
                       <span className="text-slate-600">Discount:</span>
-                      <span className="font-medium">{item.discount}%</span>
+                      <span className="font-medium">{item.discountType === 'amount' ? `₹ ${formatCurrency(item.discount)}` : `${item.discount}%`}</span>
                     </div>
                   )}
                   <div className="flex justify-between col-span-2 pt-2 border-t border-slate-300 mt-2">
@@ -623,10 +630,6 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                 <p className="text-slate-600 text-sm whitespace-pre-line break-words">
                   {data.notes || "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'."}
                 </p>
-                <div className="mt-4 text-sm text-slate-600">
-                  <p>For any enquiries, email us on <span className="font-medium">{data.companyEmail || "foobarlabs@gmail.com"}</span> or call us on</p>
-                  <p className="font-medium">{data.companyPhone || "+91 98765 43210"}</p>
-                </div>
               </div>
             )}
           </div>
@@ -640,7 +643,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
               </div>
               {showDiscount && totalDiscount > 0 && (
                 <div className="flex justify-between p-4 border-b border-slate-300">
-                  <span className="font-medium text-sm">Discount(5%)</span>
+                  <span className="font-medium text-sm">Total Discount</span>
                   <span className="font-medium text-sm">- ₹{formatCurrency(totalDiscount)}</span>
                 </div>
               )}
@@ -657,6 +660,13 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                 {numberToWords(showDiscount ? total : subtotal)} Rupees Only
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* For any enquiries section */}
+        <div className="mt-8 pt-6 border-t border-slate-300">
+          <div className="text-center text-sm text-slate-600">
+            <p>For any enquiries, email us on <span className="font-medium">{data.companyEmail || "foobarlabs@gmail.com"}</span> or call us on {data.companyPhone}</p>
           </div>
         </div>
 

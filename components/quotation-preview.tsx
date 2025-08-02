@@ -471,8 +471,7 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
               )}
               <div className="min-w-0 flex-1">
                 <h1 className="text-2xl font-bold leading-tight break-words">{data.companyName}</h1>
-                <p className="text-emerald-100 text-sm leading-tight break-words">{data.companyAddress}, {data.companyPhone}</p>
-                <p className="text-emerald-100 text-sm leading-tight break-words">Bengaluru, Karnataka, India - 560055</p>
+                <p className="text-emerald-100 text-sm leading-tight break-words">{data.companyAddress}</p>
               </div>
             </div>
             <div className="text-right">
@@ -484,18 +483,8 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
             <div className="space-y-1">
               <h3 className="font-semibold text-slate-800 mb-3 text-base border-b border-slate-300 pb-1">Billed to</h3>
-              <p className="text-slate-700 font-bold text-lg break-words">{data.clientName || "Studio Den"}</p>
-              <p className="text-slate-600 text-sm whitespace-pre-line break-words">{data.clientAddress || "305, 3rd Floor Orion mall, Bengaluru, Karnataka, India - 560055"}</p>
-              <div className="mt-4 space-y-1">
-                <div className="flex gap-4">
-                  <span className="text-slate-600 text-sm font-semibold w-16">GST</span>
-                  <span className="text-slate-700 text-sm">29PGCED1234KZ6</span>
-                </div>
-                <div className="flex gap-4">
-                  <span className="text-slate-600 text-sm font-semibold w-16">PAN</span>
-                  <span className="text-slate-700 text-sm">PGCED1234K</span>
-                </div>
-              </div>
+              <p className="text-slate-700 font-bold text-lg break-words">{data.clientName}</p>
+              <p className="text-slate-600 text-sm whitespace-pre-line break-words">{data.clientAddress}</p>
             </div>
 
             <div className="space-y-4">
@@ -503,15 +492,15 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                 <h3 className="font-semibold text-slate-800 mb-3 text-base">Quotation Details</h3>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-slate-600 text-sm">Quotation #</span>
+                    <span className="text-slate-600 text-sm">Quotation No.</span>
                     <span className="font-medium text-sm">{data.quotationNumber || "003"}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-600 text-sm">Quotation Date</span>
+                    <span className="text-slate-600 text-sm">Quotation Date.</span>
                     <span className="font-medium text-sm">{data.quotationDate ? new Date(data.quotationDate).toLocaleDateString('en-GB') : "FEB 19, 2020"}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-600 text-sm">Due Date</span>
+                    <span className="text-slate-600 text-sm">Due Date.</span>
                     <span className="font-medium text-sm">{data.dueDate ? new Date(data.dueDate).toLocaleDateString('en-GB') : "FEB 19, 2020"}</span>
                   </div>
                 </div>
@@ -520,15 +509,18 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
           </div>
 
           {/* Items Table */}
-          <div className="mb-8">
+          <div className="mb-8 border border-slate-300 rounded-lg overflow-hidden bg-white">
             {/* Desktop Table */}
             <div className="hidden md:block overflow-x-auto">
-              <table className="w-full border-collapse rounded-lg overflow-hidden">
+              <table className="w-full border-collapse rounded-lg overflow-hidden ">
                 <thead>
                   <tr className="bg-emerald-600 text-white">
                     <th className="border border-emerald-600 py-3 px-4 text-left font-semibold text-sm first:rounded-tl-lg last:rounded-tr-lg">Item #/Item description</th>
                     <th className="border border-emerald-600 py-3 px-4 text-center font-semibold text-sm">Qty.</th>
                     <th className="border border-emerald-600 py-3 px-4 text-center font-semibold text-sm">Rate</th>
+                    {showDiscount && (
+                      <th className="border border-emerald-600 py-3 px-4 text-center font-semibold text-sm">Discount</th>
+                    )}
                     <th className="border border-emerald-600 py-3 px-4 text-center font-semibold text-sm first:rounded-tl-lg last:rounded-tr-lg">Amount</th>
                   </tr>
                 </thead>
@@ -536,12 +528,16 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                   {data.items.map((item, index) => (
                     <tr key={item.id} className="border-b border-slate-200 last:border-b-0">
                       <td className="border-l border-r border-slate-200 p-4 first:border-l-0 last:border-r-0">
-                        <div className="font-medium text-sm text-slate-800">{index + 1}.</div>
-                        <div className="text-sm text-slate-600 break-words">{item.description || `Basic Web Development`}</div>
+                        <div className="text-sm text-black-600 break-words">{item.description}</div>
                       </td>
                       <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">{item.quantity}</td>
-                      <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">₹ {formatCurrency(item.rate)}</td>
-                      <td className="border-r border-slate-200 p-4 text-right font-medium text-sm last:border-r-0">₹ {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}</td>
+                      <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">Rs. {formatCurrency(item.rate)}</td>
+                      {showDiscount && (
+                        <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">
+                          {item.discountType === 'amount' ? `Rs. ${formatCurrency(item.discount)}` : `${item.discount}%`}
+                        </td>
+                      )}
+                      <td className="border-r border-slate-200 p-4 text-center font-medium text-sm last:border-r-0">Rs. {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -562,7 +558,7 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-600">Rate:</span>
-                      <span className="font-medium">₹ {formatCurrency(item.rate)}</span>
+                      <span className="font-medium">Rs. {formatCurrency(item.rate)}</span>
                     </div>
                     {showDiscount && (
                       <div className="flex justify-between">
@@ -573,7 +569,7 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                     <div className="flex justify-between col-span-2 pt-2 border-t border-slate-300 mt-2">
                       <span className="text-slate-600 font-medium">Amount:</span>
                       <span className="font-bold text-emerald-600">
-                        ₹ {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}
+                        Rs. {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}
                       </span>
                     </div>
                   </div>
@@ -618,17 +614,17 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                   <div className="border border-slate-300 rounded-lg overflow-hidden">
                     <div className="flex justify-between p-4 border-b border-slate-300">
                       <span className="font-medium text-sm">Sub Total</span>
-                      <span className="font-medium text-sm">₹{formatCurrency(subtotal)}</span>
+                      <span className="font-medium text-sm">Rs.{formatCurrency(subtotal)}</span>
                     </div>
                     {showDiscount && totalDiscount > 0 && (
                       <div className="flex justify-between p-4 border-b border-slate-300">
-                        <span className="font-medium text-sm">Discount(5%)</span>
-                        <span className="font-medium text-sm">- ₹{formatCurrency(totalDiscount)}</span>
+                        <span className="font-medium text-sm">Total Discount</span>
+                        <span className="font-medium text-sm">- Rs.{formatCurrency(totalDiscount)}</span>
                       </div>
                     )}
                     <div className="flex justify-between p-4 bg-emerald-600 text-white">
                       <span className="font-bold text-lg">Total</span>
-                      <span className="font-bold text-xl">₹{formatCurrency(showDiscount ? total : subtotal)}</span>
+                      <span className="font-bold text-xl">Rs.{formatCurrency(showDiscount ? total : subtotal)}</span>
                     </div>
                   </div>
 
@@ -641,6 +637,13 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                   </div>
                 </>
               )}
+            </div>
+          </div>
+
+          {/* For any enquiries section */}
+          <div className="mt-8 pt-6 border-t border-slate-300">
+            <div className="text-center text-sm text-slate-600">
+            <p>For any enquiries, email us on <span className="font-medium">{data.companyEmail || "foobarlabs@gmail.com"}</span> or call us on {data.companyPhone}</p>
             </div>
           </div>
 
