@@ -102,7 +102,7 @@ export default function HomePage() {
                 </Link>
                 <Link href="/about" className="block">
                   <Button variant="outline" className="w-full border-slate-200 text-slate-700 hover:bg-slate-100 bg-transparent">
-                    About Invoice Manager
+                    About Makinvoiz
                   </Button>
                 </Link>
               </CardContent>
