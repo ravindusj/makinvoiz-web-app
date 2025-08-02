@@ -451,31 +451,61 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
           }}
         >
           {/* Header */}
-          <div className="bg-emerald-600 text-white p-6 rounded-t-lg mb-6 flex justify-between items-center">
-            <div className="flex items-center gap-4">
-              {settings?.logoUrl ? (
-                <div className="w-16 h-16 rounded-lg overflow-hidden bg-white p-2 flex-shrink-0">
-                  <Image
-                    src={settings.logoUrl}
-                    alt="Company Logo"
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-contain"
-                    priority
-                  />
-                </div>
-              ) : (
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span className="text-emerald-600 font-bold text-2xl">{data.companyName.substring(0, 2).toUpperCase()}</span>
-                </div>
-              )}
-              <div className="min-w-0 flex-1">
-                <h1 className="text-2xl font-bold leading-tight break-words">{data.companyName}</h1>
+          <div className="bg-emerald-600 text-white p-4 md:p-6 rounded-t-lg mb-6">
+            {/* Mobile Layout */}
+            <div className="block md:hidden">
+              <div className="flex justify-between items-start mb-4">
+                <h2 className="text-2xl md:text-4xl font-bold">Quotation</h2>
+                {settings?.logoUrl ? (
+                  <div className="w-12 h-12 rounded-lg overflow-hidden bg-white p-1 flex-shrink-0">
+                    <Image
+                      src={settings.logoUrl}
+                      alt="Company Logo"
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-contain"
+                      priority
+                    />
+                  </div>
+                ) : (
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-600 font-bold text-lg">{data.companyName.substring(0, 2).toUpperCase()}</span>
+                  </div>
+                )}
+              </div>
+              <div className="space-y-1">
+                <h1 className="text-xl font-bold leading-tight break-words">{data.companyName}</h1>
                 <p className="text-emerald-100 text-sm leading-tight break-words">{data.companyAddress}</p>
               </div>
             </div>
-            <div className="text-right">
-              <h2 className="text-4xl font-bold">Quotation</h2>
+
+            {/* Desktop Layout */}
+            <div className="hidden md:flex justify-between items-center">
+              <div className="flex items-center gap-4">
+                {settings?.logoUrl ? (
+                  <div className="w-16 h-16 rounded-lg overflow-hidden bg-white p-2 flex-shrink-0">
+                    <Image
+                      src={settings.logoUrl}
+                      alt="Company Logo"
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-contain"
+                      priority
+                    />
+                  </div>
+                ) : (
+                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-600 font-bold text-2xl">{data.companyName.substring(0, 2).toUpperCase()}</span>
+                  </div>
+                )}
+                <div className="min-w-0 flex-1">
+                  <h1 className="text-2xl font-bold leading-tight break-words">{data.companyName}</h1>
+                  <p className="text-emerald-100 text-sm leading-tight break-words">{data.companyAddress}</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <h2 className="text-4xl font-bold">Quotation</h2>
+              </div>
             </div>
           </div>
 
