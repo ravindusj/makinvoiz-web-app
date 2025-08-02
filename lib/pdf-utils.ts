@@ -209,8 +209,8 @@ export async function generatePDFFromElement(
       headerCells[i].style.fontSize = '13.5px'
       headerCells[i].style.lineHeight = '1.4'
       headerCells[i].style.fontWeight = '600'
-      headerCells[i].style.backgroundColor = '#f1f5f9'
-      headerCells[i].style.color = '#1e293b'
+      // Keep the original background color (orange for bills, emerald for quotations)
+      // Don't override backgroundColor and color - let the original colors remain
       headerCells[i].style.textAlign = i === 0 ? 'left' : 'center' // First column left-aligned, others centered
       
       // Adjust the "After Discount" text if present
