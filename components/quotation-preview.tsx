@@ -563,7 +563,7 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                     {showDiscount && (
                       <div className="flex justify-between">
                         <span className="text-slate-600">Discount:</span>
-                        <span className="font-medium">{item.discountType === 'amount' ? `₹ ${formatCurrency(item.discount)}` : `${item.discount}%`}</span>
+                        <span className="font-medium">{item.discountType === 'amount' ? ` ${formatCurrency(item.discount)}` : `${item.discount}%`}</span>
                       </div>
                     )}
                     <div className="flex justify-between col-span-2 pt-2 border-t border-slate-300 mt-2">

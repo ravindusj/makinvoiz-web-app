@@ -658,17 +658,17 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
             <div className="border border-slate-300 rounded-lg overflow-hidden">
               <div className="flex justify-between p-4 border-b border-slate-300">
                 <span className="font-medium text-sm">Sub Total</span>
-                <span className="font-medium text-sm">₹{formatCurrency(subtotal)}</span>
+                <span className="font-medium text-sm">Rs.{formatCurrency(subtotal)}</span>
               </div>
               {showDiscount && totalDiscount > 0 && (
                 <div className="flex justify-between p-4 border-b border-slate-300">
                   <span className="font-medium text-sm">Total Discount</span>
-                  <span className="font-medium text-sm">- ₹{formatCurrency(totalDiscount)}</span>
+                  <span className="font-medium text-sm">- Rs.{formatCurrency(totalDiscount)}</span>
                 </div>
               )}
               <div className="flex justify-between p-4 bg-orange-600 text-white">
                 <span className="font-bold text-lg">Total</span>
-                <span className="font-bold text-xl">₹{formatCurrency(showDiscount ? total : subtotal)}</span>
+                <span className="font-bold text-xl">Rs.{formatCurrency(showDiscount ? total : subtotal)}</span>
               </div>
             </div>
 
