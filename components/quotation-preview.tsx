@@ -615,9 +615,9 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
               {showTerms && (
                 <div>
                   <h3 className="font-semibold text-slate-800 mb-3 text-base">Terms and Conditions</h3>
-                  <ol className="text-slate-600 text-sm space-y-2">
-                    <li>{data.terms}</li>
-                  </ol>
+                  <p className="text-slate-600 text-sm whitespace-pre-line break-words">
+                    {data.terms}
+                  </p>
                 </div>
               )}
 
