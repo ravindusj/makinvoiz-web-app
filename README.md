@@ -1,63 +1,395 @@
-# 🚀 Invoice Manager
+# 📋 MakInvoiz Web App
 
-Invoice Manager is a modern, TypeScript-powered application designed to streamline the process of creating, managing, and tracking invoices. Built for flexibility and ease of use, it provides a robust and efficient solution for freelancers, small businesses, and organizations that need a clear overview of their billing workflow.
+<div align="center">
+
+![TypeScript](https://img.shields.io/badge/TypeScript-98%25-blue?style=for-the-badge&logo=typescript)
+![Next.js](https://img.shields.io/badge/Next.js-Framework-black?style=for-the-badge&logo=next.js)
+![Supabase](https://img.shields.io/badge/Supabase-Backend-green?style=for-the-badge&logo=supabase)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Build Status](https://img.shields.io/badge/Build-Passing-success?style=for-the-badge)
+
+**A modern, feature-rich invoice management web application built with TypeScript & Supabase** 💼
+
+[Demo](#-demo) • [Features](#-features) • [Installation](#-installation) • [API Configuration](#-api-configuration) • [Documentation](#-documentation)
+
+</div>
 
 ---
+
+## 🚀 Overview
+
+MakInvoiz is a comprehensive web-based invoice management system designed to streamline your billing process. Built with modern TypeScript, Next.js, and powered by Supabase, it offers a clean, intuitive interface for creating, managing, and tracking invoices with ease.
 
 ## ✨ Features
 
-- 📝 **Create & Edit Invoices:** Easily generate new invoices and modify existing ones with a user-friendly interface.
-- 👥 **Customer Management:** Store and manage customer details to speed up invoice creation.
-- 💸 **Track Payments:** Monitor invoice statuses and track payments received or pending.
-- 📄 **Export & Print:** Download invoices as PDFs or print them directly from the app.
-- 🔎 **Search & Filter:** Quickly find invoices using powerful search and filter options.
-- 🎨 **Customizable Templates:** Personalize invoice templates to match your branding.
-- ⏰ **Notifications:** Get reminders for overdue invoices.
-- 🔒 **Secure & Reliable:** Built with TypeScript and best practices for high reliability.
+### 📊 **Core Functionality**
+- 🧾 **Invoice Creation** - Generate professional invoices in minutes
+- 👥 **Client Management** - Organize and manage customer information
+- 📈 **Dashboard Analytics** - Track payments, overdue invoices, and revenue
+- 💰 **Payment Tracking** - Monitor payment status and history
+- 📱 **Responsive Design** - Works seamlessly on all devices
 
----
+### 🔧 **Advanced Features**
+- 🎨 **Customizable Templates** - Brand your invoices with custom designs
+- 📧 **Email Integration** - Send invoices directly to clients
+- 💾 **PDF Export** - Download invoices in PDF format
+- 🔒 **Secure Authentication** - Supabase Auth with JWT tokens
+- 📊 **Real-time Updates** - Live data synchronization
+- 🗄️ **PostgreSQL Database** - Robust data storage with Supabase
 
-## 🛠 Tech Stack
+## 🛠️ Technology Stack
 
-- **TypeScript:** Robust type safety and maintainable codebase.
-- **TailwindCSS:** Modern styling for responsive layouts.
-- **Other:** Additional tooling for improved development workflow.
+```typescript
+const techStack = {
+  frontend: "Next.js with TypeScript",
+  backend: "Supabase (PostgreSQL + Auth + Real-time)",
+  database: "PostgreSQL with Prisma ORM",
+  authentication: "Supabase Auth with JWT",
+  styling: "Modern CSS/SCSS",
+  architecture: "Full-stack serverless"
+};
+```
 
----
-
-## 🚦 Getting Started
+## 📦 Installation
 
 ### Prerequisites
+- Node.js (v18 or higher) 📦
+- npm or yarn package manager 🧶
+- Git 🔧
+- Supabase account 🗄️
 
-- [Node.js](https://nodejs.org/) (version 14 or later)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-
-### Installation
+### Quick Start
 
 ```bash
-git clone https://github.com/ravindusj/invoice-manager.git
-cd invoice-manager
+# Clone the repository
+git clone https://github.com/ravindusj/makinvoiz-web-app.git
+
+# Navigate to project directory
+cd makinvoiz-web-app
+
+# Install dependencies
 npm install
-# or
-yarn install
-```
 
-### Running the Application
+# Copy environment variables
+cp .env.example .env.local
 
-```bash
-npm start
-# or
-yarn start
-```
+# Configure your environment variables (see API Configuration below)
+# Edit .env.local with your Supabase credentials
 
-### Building for Production
+# Run database migrations (if using Prisma)
+npx prisma generate
+npx prisma db push
 
-```bash
+# Start development server
+npm run dev
+
+# Build for production
 npm run build
-# or
-yarn build
 ```
 
-## 👤 Author
+## 🔧 API Configuration
 
-Made with ❤️ by [ravindusj](https://github.com/ravindusj)
+### Environment Variables Setup
+
+Create a `.env.local` file in your project root and configure the following variables:
+
+#### 🗄️ Supabase Configuration
+
+```bash
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+
+# Supabase Service Role Key (for server-side operations)
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
+
+# Supabase JWT Secret (for token verification)
+SUPABASE_JWT_SECRET=your-jwt-secret-here
+```
+
+#### 🐘 Database Configuration
+
+```bash
+# Database URLs (if using direct database connections)
+POSTGRES_URL=postgresql://username:password@host:port/database
+POSTGRES_PRISMA_URL=postgresql://username:password@host:port/database?pgbouncer=true&connect_timeout=15
+POSTGRES_URL_NON_POOLING=postgresql://username:password@host:port/database
+
+# Database connection details
+POSTGRES_USER=your-db-username
+POSTGRES_HOST=your-db-host
+POSTGRES_PASSWORD=your-db-password
+POSTGRES_DATABASE=your-db-name
+```
+
+### 🚀 Getting Your Supabase Credentials
+
+1. **Create a Supabase Project**
+   - Go to [Supabase](https://supabase.com)
+   - Create a new project
+   - Wait for the project to be ready
+
+2. **Get Your API Keys**
+   ```typescript
+   // Navigate to Settings > API in your Supabase dashboard
+   const supabaseConfig = {
+     url: "https://your-project-ref.supabase.co",
+     anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...", // Public anon key
+     serviceRoleKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." // Service role key (keep secret!)
+   };
+   ```
+
+3. **Database Connection String**
+   ```sql
+   -- Found in Settings > Database
+   postgresql://postgres:[YOUR-PASSWORD]@db.[YOUR-PROJECT-REF].supabase.co:5432/postgres
+   ```
+
+### 🔐 Security Best Practices
+
+> **⚠️ Important Security Notes:**
+> - Never commit `.env.local` to version control
+> - Use `NEXT_PUBLIC_` prefix only for client-side variables
+> - Keep `SUPABASE_SERVICE_ROLE_KEY` secret (server-side only)
+> - Rotate keys regularly in production
+
+### 🗄️ Database Schema Setup
+
+```sql
+-- Example schema for invoice management
+CREATE TABLE clients (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  email VARCHAR UNIQUE NOT NULL,
+  address TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE TABLE invoices (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  client_id UUID REFERENCES clients(id),
+  invoice_number VARCHAR UNIQUE NOT NULL,
+  amount DECIMAL(10,2) NOT NULL,
+  status VARCHAR DEFAULT 'draft',
+  due_date DATE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Enable Row Level Security
+ALTER TABLE clients ENABLE ROW LEVEL SECURITY;
+ALTER TABLE invoices ENABLE ROW LEVEL SECURITY;
+```
+
+### 📊 Supabase Client Configuration
+
+```typescript
+// lib/supabase.ts
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// For server-side operations
+export const supabaseAdmin = createClient(
+  supabaseUrl,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
+```
+
+### 🔄 Prisma Configuration (Optional)
+
+```typescript
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Client {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  address   String?
+  invoices  Invoice[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("clients")
+}
+```
+
+## 🎯 Usage
+
+### Creating Your First Invoice
+
+1. **📝 Add Client Information**
+   ```typescript
+   const client = {
+     name: "Client Name",
+     email: "client@example.com",
+     address: "Client Address"
+   };
+   ```
+
+2. **💼 Create Invoice**
+   - Navigate to "New Invoice"
+   - Select client or add new one
+   - Add line items with descriptions and amounts
+   - Set payment terms and due date
+
+3. **📤 Send & Track**
+   - Preview your invoice
+   - Send via email or download PDF
+   - Track payment status in dashboard
+
+## 📁 Project Structure
+
+```
+makinvoiz-web-app/
+├── 📂 src/
+│   ├── 📂 components/     # Reusable UI components
+│   ├── 📂 pages/          # Next.js pages
+│   ├── 📂 api/            # API routes
+│   ├── 📂 lib/            # Supabase client & utilities
+│   ├── 📂 types/          # TypeScript type definitions
+│   ├── 📂 utils/          # Helper functions
+│   └── 📂 styles/         # Global styles and themes
+├── 📂 prisma/             # Database schema and migrations
+├── 📂 public/             # Static assets
+├── 📄 .env.local          # Environment variables (create this)
+├── 📄 .env.example        # Environment variables template
+├── 📄 package.json        # Dependencies and scripts
+└── 📄 tsconfig.json       # TypeScript configuration
+```
+
+## 🎨 Screenshots
+
+<div align="center">
+
+### Dashboard Overview
+![Dashboard](https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=Dashboard+Preview)
+
+### Invoice Creation
+![Invoice Creation](https://via.placeholder.com/800x400/50C878/FFFFFF?text=Invoice+Creation)
+
+### Client Management
+![Client Management](https://via.placeholder.com/800x400/FF6B6B/FFFFFF?text=Client+Management)
+
+</div>
+
+## 🚦 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | 🔥 Start development server |
+| `npm run build` | 🏗️ Build for production |
+| `npm run start` | 🚀 Start production server |
+| `npm run test` | 🧪 Run test suite |
+| `npm run lint` | 🔍 Lint code |
+| `npm run type-check` | ✅ Type checking |
+| `npx prisma studio` | 🗄️ Open Prisma Studio |
+| `npx prisma generate` | ⚙️ Generate Prisma client |
+
+## 🔧 Deployment
+
+### Vercel Deployment
+
+1. **Push to GitHub**
+2. **Connect to Vercel**
+3. **Add Environment Variables** in Vercel dashboard
+4. **Deploy** 🚀
+
+### Environment Variables for Production
+
+```bash
+# Add these in your deployment platform
+NEXT_PUBLIC_SUPABASE_URL=your-production-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-production-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-production-service-role-key
+SUPABASE_JWT_SECRET=your-production-jwt-secret
+POSTGRES_URL=your-production-postgres-url
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how you can help:
+
+1. 🍴 **Fork** the repository
+2. 🌟 **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. 💫 **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. 🚀 **Push** to the branch (`git push origin feature/amazing-feature`)
+5. 🎉 **Open** a Pull Request
+
+### Development Guidelines
+
+- ✅ Follow TypeScript best practices
+- 📝 Write meaningful commit messages
+- 🧪 Add tests for new features
+- 📚 Update documentation when needed
+- 🔒 Follow security best practices for database operations
+
+## 📋 Roadmap
+
+- [ ] 🔌 **API Integration** - Connect with accounting software
+- [ ] 🌐 **Multi-language Support** - Internationalization
+- [ ] 📊 **Advanced Analytics** - Detailed business insights
+- [ ] 💳 **Payment Gateway** - Integrated payment processing
+- [ ] 📱 **Mobile App** - Native mobile applications
+- [ ] 🔄 **Real-time Collaboration** - Multi-user editing
+- [ ] 📧 **Email Templates** - Customizable email notifications
+
+## 🐛 Bug Reports & Feature Requests
+
+Found a bug? Have an idea? We'd love to hear from you!
+
+- 🐞 [Report a Bug](https://github.com/ravindusj/makinvoiz-web-app/issues/new?template=bug_report.md)
+- 💡 [Request a Feature](https://github.com/ravindusj/makinvoiz-web-app/issues/new?template=feature_request.md)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Ravindu SJ** [@ravindusj](https://github.com/ravindusj)
+
+- 🌐 Website: [Your Website]
+- 📧 Email: [Your Email]
+- 💼 LinkedIn: [Your LinkedIn]
+
+## 🙏 Acknowledgments
+
+- 💖 Thanks to all contributors
+- 🗄️ Powered by [Supabase](https://supabase.com)
+- ⚡ Built with [Next.js](https://nextjs.org)
+- 🎨 Icons by [Feather Icons](https://feathericons.com/)
+
+## 📊 Stats
+
+<div align="center">
+
+![GitHub Stars](https://img.shields.io/github/stars/ravindusj/makinvoiz-web-app?style=social)
+![GitHub Forks](https://img.shields.io/github/forks/ravindusj/makinvoiz-web-app?style=social)
+![GitHub Issues](https://img.shields.io/github/issues/ravindusj/makinvoiz-web-app)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/ravindusj/makinvoiz-web-app)
+
+</div>
+
+---
+
+<div align="center">
+
+**Made with ❤️ by [Ravindu SJ](https://github.com/ravindusj)**
+
+*Give this project a ⭐ if you found it helpful!*
+
+</div>
