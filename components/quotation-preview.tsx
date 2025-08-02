@@ -256,7 +256,7 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
   return (
     <div className="w-full flex flex-col items-center gap-4 p-2 md:p-4 bg-[#F6F6F6] rounded-2xl min-h-screen md:min-h-0">
       {/* Action Buttons - Desktop */}
-      <div className="hidden md:flex items-center justify-between p-4 border-b print:hidden w-[calc(210mm+26rem)] mx-auto bg-white rounded-lg shadow-sm mb-2 relative z-10">
+      <div className="hidden md:flex items-center justify-between p-4 border-b print:hidden w-[calc(210mm+27rem)] mx-auto bg-white rounded-lg shadow-sm mb-2 relative z-10">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-6 border-r pr-6">
             <label className="flex items-center gap-2 text-sm whitespace-nowrap">
