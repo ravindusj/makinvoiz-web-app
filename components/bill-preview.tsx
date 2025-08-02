@@ -648,6 +648,25 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                 {numberToWords(showDiscount ? total : subtotal)} Rupees Only
               </div>
             </div>
+
+            {/* Financial Information */}
+            {showFinancialInfo && userSettings && (userSettings.taxNumber || userSettings.bankDetails) && (
+              <div className="border border-slate-300 p-4 rounded-lg">
+                <div className="font-medium mb-3 text-sm">Financial Information</div>
+                {userSettings.taxNumber && (
+                  <div className="mb-2">
+                    <div className="text-xs text-slate-600 mb-1">Tax Number</div>
+                    <div className="text-sm font-medium text-slate-800">{userSettings.taxNumber}</div>
+                  </div>
+                )}
+                {userSettings.bankDetails && (
+                  <div>
+                    <div className="text-xs text-slate-600 mb-1">Bank Details</div>
+                    <div className="text-sm text-slate-700 whitespace-pre-line break-words">{userSettings.bankDetails}</div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
