@@ -471,7 +471,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
           }}
         >
         {/* Header */}
-        <div className="bg-blue-600 text-white p-6 rounded-t-lg mb-6 flex justify-between items-center">
+        <div className="bg-orange-600 text-white p-6 rounded-t-lg mb-6 flex justify-between items-center">
           <div className="flex items-center gap-4">
             {settings?.logoUrl ? (
               <div className="w-16 h-16 rounded-lg overflow-hidden bg-white p-2 flex-shrink-0">
@@ -486,13 +486,13 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
               </div>
             ) : (
               <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-blue-600 font-bold text-2xl">{data.companyName.substring(0, 2).toUpperCase()}</span>
+                <span className="text-orange-600 font-bold text-2xl">{data.companyName.substring(0, 2).toUpperCase()}</span>
               </div>
             )}
             <div className="min-w-0 flex-1">
               <h1 className="text-2xl font-bold leading-tight break-words">{data.companyName}</h1>
-              <p className="text-blue-100 text-sm leading-tight break-words">{data.companyAddress}, {data.companyPhone}</p>
-              <p className="text-blue-100 text-sm leading-tight break-words">Bengaluru, Karnataka, India - 560055</p>
+              <p className="text-orange-100 text-sm leading-tight break-words">{data.companyAddress}, {data.companyPhone}</p>
+              <p className="text-orange-100 text-sm leading-tight break-words">Bengaluru, Karnataka, India - 560055</p>
             </div>
           </div>
           <div className="text-right">
@@ -545,11 +545,11 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
           <div className="hidden md:block overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-blue-600 text-white">
-                  <th className="border border-blue-600 py-3 px-4 text-left font-semibold text-sm">Item #/Item description</th>
-                  <th className="border border-blue-600 py-3 px-4 text-center font-semibold text-sm">Qty.</th>
-                  <th className="border border-blue-600 py-3 px-4 text-center font-semibold text-sm">Rate</th>
-                  <th className="border border-blue-600 py-3 px-4 text-center font-semibold text-sm">Amount</th>
+                <tr className="bg-orange-600 text-white">
+                  <th className="border border-orange-600 py-3 px-4 text-left font-semibold text-sm">Item #/Item description</th>
+                  <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm">Qty.</th>
+                  <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm">Rate</th>
+                  <th className="border border-orange-600 py-3 px-4 text-center font-semibold text-sm">Amount</th>
                 </tr>
               </thead>
               <tbody>
@@ -592,7 +592,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                   )}
                   <div className="flex justify-between col-span-2 pt-2 border-t border-slate-300 mt-2">
                     <span className="text-slate-600 font-medium">Amount:</span>
-                    <span className="font-bold text-blue-600">
+                    <span className="font-bold text-orange-600">
                       ₹ {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}
                     </span>
                   </div>
@@ -644,7 +644,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                   <span className="font-medium text-sm">- ₹{formatCurrency(totalDiscount)}</span>
                 </div>
               )}
-              <div className="flex justify-between p-4 bg-blue-600 text-white">
+              <div className="flex justify-between p-4 bg-orange-600 text-white">
                 <span className="font-bold text-lg">Total</span>
                 <span className="font-bold text-xl">₹{formatCurrency(showDiscount ? total : subtotal)}</span>
               </div>
