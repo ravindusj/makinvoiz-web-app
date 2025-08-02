@@ -529,7 +529,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
         </div>
 
         {/* Items Table */}
-        <div className="mb-8">
+        <div className="mb-8 border border-slate-300 rounded-lg overflow-hidden bg-white">
           {/* Desktop Table */}
           <div className="hidden md:block overflow-x-auto">
             <table className="w-full border-collapse rounded-lg overflow-hidden">
@@ -548,17 +548,16 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                 {data.items.map((item, index) => (
                   <tr key={item.id} className="border-b border-slate-200 last:border-b-0">
                     <td className="border-l border-r border-slate-200 p-4 first:border-l-0 last:border-r-0">
-                      <div className="font-medium text-sm text-slate-800">{index + 1}.</div>
                       <div className="text-sm text-slate-600 break-words">{item.description || `Basic Web Development`}</div>
                     </td>
                     <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">{item.quantity}</td>
-                    <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">₹ {formatCurrency(item.rate)}</td>
+                    <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">Rs. {formatCurrency(item.rate)}</td>
                     {showDiscount && (
                       <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">
-                        {item.discountType === 'amount' ? `₹ ${formatCurrency(item.discount)}` : `${item.discount}%`}
+                        {item.discountType === 'amount' ? `Rs. ${formatCurrency(item.discount)}` : `${item.discount}%`}
                       </td>
                     )}
-                    <td className="border-r border-slate-200 p-4 text-right font-medium text-sm last:border-r-0">₹ {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}</td>
+                    <td className="border-r border-slate-200 p-4 text-center font-medium text-sm last:border-r-0">Rs. {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -570,7 +569,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
             {data.items.map((item, index) => (
               <div key={item.id} className="border border-slate-300 rounded-lg p-4 bg-slate-50">
                 <div className="font-medium text-sm mb-3 text-slate-800 break-words">
-                  {index + 1}. {item.description || `Basic Web Development`}
+                    {item.description || `Basic Web Development`}
                 </div>
                 <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-xs">
                   <div className="flex justify-between">
@@ -579,18 +578,18 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-600">Rate:</span>
-                    <span className="font-medium">₹ {formatCurrency(item.rate)}</span>
+                    <span className="font-medium">Rs. {formatCurrency(item.rate)}</span>
                   </div>
                   {showDiscount && (
                     <div className="flex justify-between">
                       <span className="text-slate-600">Discount:</span>
-                      <span className="font-medium">{item.discountType === 'amount' ? `₹ ${formatCurrency(item.discount)}` : `${item.discount}%`}</span>
+                      <span className="font-medium">{item.discountType === 'amount' ? `Rs. ${formatCurrency(item.discount)}` : `${item.discount}%`}</span>
                     </div>
                   )}
                   <div className="flex justify-between col-span-2 pt-2 border-t border-slate-300 mt-2">
                     <span className="text-slate-600 font-medium">Amount:</span>
                     <span className="font-bold text-orange-600">
-                      ₹ {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}
+                      Rs. {formatCurrency(showDiscount ? calculateItemTotal(item) : item.quantity * item.rate)}
                     </span>
                   </div>
                 </div>
@@ -607,8 +606,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
               <div>
                 <h3 className="font-semibold text-slate-800 mb-3 text-base">Terms and Conditions</h3>
                 <ol className="text-slate-600 text-sm space-y-2">
-                  <li>1. {data.terms || "Please pay within 15 days from the date of invoice, overdue interest @ 14% will be charged on delayed payments."}</li>
-                  <li>2. Please quote invoice number when remitting funds.</li>
+                  <li>{data.terms}</li>
                 </ol>
               </div>
             )}
