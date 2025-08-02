@@ -620,6 +620,37 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                 </p>
               </div>
             )}
+
+            {/* Signature Section */}
+            {(userSettings?.signatureUrl || settings?.signatureUrl) && (
+              <div className="mt-6">
+                <div className="flex justify-start">
+                  <div className="text-center">
+                    <div className="mb-2">
+                      {userSettings?.signatureUrl ? (
+                        <Image
+                          src={userSettings.signatureUrl}
+                          alt="Authorized Signature"
+                          width={150}
+                          height={75}
+                          className="max-w-[150px] max-h-[75px] object-contain"
+                        />
+                      ) : settings?.signatureUrl ? (
+                        <Image
+                          src={settings.signatureUrl}
+                          alt="Authorized Signature"
+                          width={150}
+                          height={75}
+                          className="max-w-[150px] max-h-[75px] object-contain"
+                        />
+                      ) : null}
+                    </div>
+                    <div className="border-t border-slate-400 w-32 mx-auto mb-1"></div>
+                    <div className="text-xs text-slate-600 font-medium">Authorized Signature</div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="space-y-4">
