@@ -74,10 +74,6 @@ cp .env.example .env.local
 # Configure your environment variables (see API Configuration below)
 # Edit .env.local with your Supabase credentials
 
-# Run database migrations (if using Prisma)
-npx prisma generate
-npx prisma db push
-
 # Start development server
 npm run dev
 
