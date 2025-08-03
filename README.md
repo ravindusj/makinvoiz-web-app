@@ -43,7 +43,7 @@ const techStack = {
   backend: "Supabase (PostgreSQL + Auth + Real-time)",
   database: "PostgreSQL with Prisma ORM",
   authentication: "Supabase Auth with JWT",
-  styling: "Modern CSS/SCSS",
+  styling: "Modern CSS/TaildwindCSS",
   architecture: "Full-stack serverless"
 };
 ```
@@ -154,7 +154,7 @@ POSTGRES_DATABASE=your-db-name
 ### 🗄️ Database Schema Setup
 
 ```sql
--- Example schema for invoice management
+-- Schema for invoice management
 CREATE TABLE clients (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   name VARCHAR NOT NULL,
