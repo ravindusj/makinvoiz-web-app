@@ -219,16 +219,14 @@ export const supabaseAdmin = createClient(
 
 ```
 makinvoiz-web-app/
-├── 📂 src/
+├───├── 📂 app/            # App routes
 │   ├── 📂 components/     # Reusable UI components
-│   ├── 📂 pages/          # Next.js pages
-│   ├── 📂 api/            # API routes
-│   ├── 📂 lib/            # Supabase client & utilities
-│   ├── 📂 types/          # TypeScript type definitions
-│   ├── 📂 utils/          # Helper functions
+│   ├── 📂 contexts/       # Context API logic
+│   ├── 📂 hooks/          # Hooks
+│   ├── 📂 lib/            # Utility functions and libraries
+│   ├── 📂 public/         # Static assets
+│   ├── 📂 scripts/        # SQL quries for supabase
 │   └── 📂 styles/         # Global styles and themes
-├── 📂 prisma/             # Database schema and migrations
-├── 📂 public/             # Static assets
 ├── 📄 .env.local          # Environment variables (create this)
 ├── 📄 .env.example        # Environment variables template
 ├── 📄 package.json        # Dependencies and scripts
@@ -250,18 +248,12 @@ makinvoiz-web-app/
 
 </div>
 
-## 🚦 Available Scripts
+## 🚦 Available Commands
 
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | 🔥 Start development server |
 | `npm run build` | 🏗️ Build for production |
-| `npm run start` | 🚀 Start production server |
-| `npm run test` | 🧪 Run test suite |
-| `npm run lint` | 🔍 Lint code |
-| `npm run type-check` | ✅ Type checking |
-| `npx prisma studio` | 🗄️ Open Prisma Studio |
-| `npx prisma generate` | ⚙️ Generate Prisma client |
 
 ## 🔧 Deployment
 
