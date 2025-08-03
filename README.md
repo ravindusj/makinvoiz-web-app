@@ -10,8 +10,6 @@
 
 **A modern, feature-rich invoice management web application built with TypeScript & Supabase** 💼
 
-[Demo](#-demo) • [Features](#-features) • [Installation](#-installation) • [API Configuration](#-api-configuration) • [Documentation](#-documentation)
-
 </div>
 
 ---
