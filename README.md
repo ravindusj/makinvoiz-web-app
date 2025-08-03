@@ -248,13 +248,6 @@ makinvoiz-web-app/
 
 </div>
 
-## 🚦 Available Commands
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | 🔥 Start development server |
-| `npm run build` | 🏗️ Build for production |
-
 ## 🔧 Deployment
 
 ### Vercel Deployment
@@ -285,23 +278,6 @@ We welcome contributions! Here's how you can help:
 4. 🚀 **Push** to the branch (`git push origin feature/amazing-feature`)
 5. 🎉 **Open** a Pull Request
 
-### Development Guidelines
-
-- ✅ Follow TypeScript best practices
-- 📝 Write meaningful commit messages
-- 🧪 Add tests for new features
-- 📚 Update documentation when needed
-- 🔒 Follow security best practices for database operations
-
-## 📋 Roadmap
-
-- [ ] 🔌 **API Integration** - Connect with accounting software
-- [ ] 🌐 **Multi-language Support** - Internationalization
-- [ ] 📊 **Advanced Analytics** - Detailed business insights
-- [ ] 💳 **Payment Gateway** - Integrated payment processing
-- [ ] 📱 **Mobile App** - Native mobile applications
-- [ ] 🔄 **Real-time Collaboration** - Multi-user editing
-- [ ] 📧 **Email Templates** - Customizable email notifications
 
 ## 🐛 Bug Reports & Feature Requests
 
@@ -318,9 +294,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Ravindu SJ** [@ravindusj](https://github.com/ravindusj)
 
-- 🌐 Website: [Your Website]
-- 📧 Email: [Your Email]
-- 💼 LinkedIn: [Your LinkedIn]
+- 🌐 Website: [gitub.com/ravindusj]
+- 📧 Email: [ravindulach@gmail.com]
+- 💼 LinkedIn: [https://www.linkedin.com/in/ravindusj/]
 
 ## 🙏 Acknowledgments
 
