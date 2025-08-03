@@ -294,16 +294,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Ravindu SJ** [@ravindusj](https://github.com/ravindusj)
 
-- 🌐 Website: [gitub.com/ravindusj]
 - 📧 Email: [ravindulach@gmail.com]
-- 💼 LinkedIn: [https://www.linkedin.com/in/ravindusj/]
+- 💼 LinkedIn: [@Ravindu Lachiththa](https://www.linkedin.com/in/ravindusj/)
 
 ## 🙏 Acknowledgments
 
 - 💖 Thanks to all contributors
 - 🗄️ Powered by [Supabase](https://supabase.com)
 - ⚡ Built with [Next.js](https://nextjs.org)
-- 🎨 Icons by [Feather Icons](https://feathericons.com/)
+- 🎨 Icons by [Lucid Icons](https://lucide.dev/icons/)
+- 🌈 UI Components by [shadcd](https://ui.shadcn.com/)
 
 ## 📊 Stats
 
