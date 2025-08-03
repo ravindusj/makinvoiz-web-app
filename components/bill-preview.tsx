@@ -533,8 +533,8 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
           <div className="space-y-1">
             <h3 className="font-semibold text-slate-800 mb-3 text-base border-b border-slate-300 pb-1">Billed to</h3>
-            <p className="text-slate-700 font-bold text-lg break-words">{data.clientName || "Studio Den"}</p>
-            <p className="text-slate-600 text-sm whitespace-pre-line break-words">{data.clientAddress || "305, 3rd Floor Orion mall, Bengaluru, Karnataka, India - 560055"}</p>
+            <p className="text-slate-700 font-bold text-lg break-words">{data.clientName}</p>
+            <p className="text-slate-600 text-sm whitespace-pre-line break-words">{data.clientAddress}</p>
           </div>
 
           <div className="space-y-4">
@@ -543,15 +543,15 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-slate-600 text-sm">Bill No.</span>
-                  <span className="font-medium text-sm">{data.billNumber || "003"}</span>
+                  <span className="font-medium text-sm">{data.billNumber || ""}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-600 text-sm">Bill Date.</span>
-                  <span className="font-medium text-sm">{data.billDate ? new Date(data.billDate).toLocaleDateString('en-GB') : "FEB 19, 2020"}</span>
+                  <span className="font-medium text-sm">{data.billDate ? new Date(data.billDate).toLocaleDateString('en-GB') : ""}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-600 text-sm">Due Date.</span>
-                  <span className="font-medium text-sm">{data.dueDate ? new Date(data.dueDate).toLocaleDateString('en-GB') : "FEB 19, 2020"}</span>
+                  <span className="font-medium text-sm">{data.dueDate ? new Date(data.dueDate).toLocaleDateString('en-GB') : ""}</span>
                 </div>
               </div>
             </div>
@@ -578,7 +578,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
                 {data.items.map((item, index) => (
                   <tr key={item.id} className="border-b border-slate-200 last:border-b-0">
                     <td className="border-l border-r border-slate-200 p-4 first:border-l-0 last:border-r-0">
-                      <div className="text-sm text-slate-600 break-words">{item.description || `Basic Web Development`}</div>
+                      <div className="text-sm text-slate-600 break-words">{item.description}</div>
                     </td>
                     <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">{item.quantity}</td>
                     <td className="border-r border-slate-200 p-4 text-center text-sm last:border-r-0">Rs. {formatCurrency(item.rate)}</td>
@@ -599,7 +599,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
             {data.items.map((item, index) => (
               <div key={item.id} className="border border-slate-300 rounded-lg p-4 bg-slate-50">
                 <div className="font-medium text-sm mb-3 text-slate-800 break-words">
-                    {item.description || `Basic Web Development`}
+                    {item.description}
                 </div>
                 <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-xs">
                   <div className="flex justify-between">
@@ -646,7 +646,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
               <div>
                 <h3 className="font-semibold text-slate-800 mb-3 text-base">Additional Notes</h3>
                 <p className="text-slate-600 text-sm whitespace-pre-line break-words">
-                  {data.notes || "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'."}
+                  {data.notes}
                 </p>
               </div>
             )}
@@ -734,7 +734,7 @@ export function BillPreview({ data, settings }: BillPreviewProps) {
         {/* For any enquiries section */}
         <div className="mt-8 pt-6 border-t border-slate-300">
           <div className="text-center text-sm text-slate-600">
-            <p>For any enquiries, email us on <span className="font-medium">{data.companyEmail || "foobarlabs@gmail.com"}</span> or call us on {data.companyPhone}</p>
+            <p>For any enquiries, email us on <span className="font-medium">{data.companyEmail}</span> or call us on {data.companyPhone}</p>
           </div>
         </div>
 
