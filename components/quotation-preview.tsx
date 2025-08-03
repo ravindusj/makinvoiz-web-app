@@ -523,15 +523,15 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span className="text-slate-600 text-sm">Quotation No.</span>
-                    <span className="font-medium text-sm">{data.quotationNumber || "003"}</span>
+                    <span className="font-medium text-sm">{data.quotationNumber || ""}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-600 text-sm">Quotation Date.</span>
-                    <span className="font-medium text-sm">{data.quotationDate ? new Date(data.quotationDate).toLocaleDateString('en-GB') : "FEB 19, 2020"}</span>
+                    <span className="font-medium text-sm">{data.quotationDate ? new Date(data.quotationDate).toLocaleDateString('en-GB') : ""}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-600 text-sm">Due Date.</span>
-                    <span className="font-medium text-sm">{data.dueDate ? new Date(data.dueDate).toLocaleDateString('en-GB') : "FEB 19, 2020"}</span>
+                    <span className="font-medium text-sm">{data.dueDate ? new Date(data.dueDate).toLocaleDateString('en-GB') : ""}</span>
                   </div>
                 </div>
               </div>
@@ -579,7 +579,7 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
               {data.items.map((item, index) => (
                 <div key={item.id} className="border border-slate-300 rounded-lg p-4 bg-slate-50">
                   <div className="font-medium text-sm mb-3 text-slate-800 break-words">
-                    {index + 1}. {item.description || `Basic Web Development`}
+                    {index + 1}. {item.description}
                   </div>
                   <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-xs">
                     <div className="flex justify-between">
@@ -626,7 +626,7 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
                 <div>
                   <h3 className="font-semibold text-slate-800 mb-3 text-base">Additional Notes</h3>
                   <p className="text-slate-600 text-sm whitespace-pre-line break-words">
-                    {data.notes || "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'."}
+                    {data.notes}
                   </p>
                 </div>
               )}
@@ -718,7 +718,7 @@ export function QuotationPreview({ data, settings }: QuotationPreviewProps) {
           {/* For any enquiries section */}
           <div className="mt-8 pt-6 border-t border-slate-300">
             <div className="text-center text-sm text-slate-600">
-            <p>For any enquiries, email us on <span className="font-medium">{data.companyEmail || "foobarlabs@gmail.com"}</span> or call us on {data.companyPhone}</p>
+            <p>For any enquiries, email us on <span className="font-medium">{data.companyEmail}</span> or call us on {data.companyPhone}</p>
             </div>
           </div>
 
