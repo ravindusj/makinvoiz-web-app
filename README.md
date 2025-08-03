@@ -18,20 +18,18 @@
 
 ## 🚀 Overview
 
-MakInvoiz is a comprehensive web-based invoice management system designed to streamline your billing process. Built with modern TypeScript, Next.js, and powered by Supabase, it offers a clean, intuitive interface for creating, managing, and tracking invoices with ease.
+MakInvoiz is a comprehensive web-based invoice management system designed to streamline your billing process. Built with modern TypeScript, Next.js, and powered by Supabase, it offers a clean, intuitive interface for creating, managing, and storing invoices with ease.
 
 ## ✨ Features
 
 ### 📊 **Core Functionality**
 - 🧾 **Invoice Creation** - Generate professional invoices in minutes
-- 👥 **Client Management** - Organize and manage customer information
-- 📈 **Dashboard Analytics** - Track payments, overdue invoices, and revenue
-- 💰 **Payment Tracking** - Monitor payment status and history
+- 👥 **Business Info Management** - Organize and manage business information
+- 💰 **Payment Tracking** - Monitor payment status and history (Coming Soon)
 - 📱 **Responsive Design** - Works seamlessly on all devices
 
 ### 🔧 **Advanced Features**
-- 🎨 **Customizable Templates** - Brand your invoices with custom designs
-- 📧 **Email Integration** - Send invoices directly to clients
+
 - 💾 **PDF Export** - Download invoices in PDF format
 - 🔒 **Secure Authentication** - Supabase Auth with JWT tokens
 - 📊 **Real-time Updates** - Live data synchronization
