@@ -194,56 +194,26 @@ export const supabaseAdmin = createClient(
 );
 ```
 
-### 🔄 Prisma Configuration (Optional)
-
-```typescript
-// prisma/schema.prisma
-generator client {
-  provider = "prisma-client-js"
-}
-
-datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
-}
-
-model Client {
-  id        String   @id @default(cuid())
-  name      String
-  email     String   @unique
-  address   String?
-  invoices  Invoice[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("clients")
-}
-```
-
 ## 🎯 Usage
 
 ### Creating Your First Invoice
 
-1. **📝 Add Client Information**
-   ```typescript
-   const client = {
-     name: "Client Name",
-     email: "client@example.com",
-     address: "Client Address"
-   };
-   ```
+1. **📝 Add Business Information**
+    - Navigate to "Manage Settings"
+    - Add your all business information
+    - Save the changes
 
-2. **💼 Create Invoice**
-   - Navigate to "New Invoice"
-   - Select client or add new one
+2. **💼 Create Quotation/Bill**
+   - Navigate to "New Quotation/Bill"
+   - Add your client information
    - Add line items with descriptions and amounts
-   - Set payment terms and due date
+   - Set payment info and terms conditions
+   - Click create button
 
 3. **📤 Send & Track**
    - Preview your invoice
-   - Send via email or download PDF
-   - Track payment status in dashboard
+   - Download PDF
+   - Send it 
 
 ## 📁 Project Structure
 
