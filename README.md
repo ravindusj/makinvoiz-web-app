@@ -238,13 +238,14 @@ makinvoiz-web-app/
 <div align="center">
 
 ### Dashboard Overview
-![Dashboard](https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=Dashboard+Preview)
+![Dashboard](https://github.com/ravindusj/makinvoiz-web-app/blob/main/public/dashboard.png)
 
 ### Invoice Creation
-![Invoice Creation](https://via.placeholder.com/800x400/50C878/FFFFFF?text=Invoice+Creation)
+![Quotation Creation](https://github.com/ravindusj/makinvoiz-web-app/blob/main/public/quotation-in.png)
+![Bill Creation](https://github.com/ravindusj/makinvoiz-web-app/blob/main/public/bill-invoice.png)
 
-### Client Management
-![Client Management](https://via.placeholder.com/800x400/FF6B6B/FFFFFF?text=Client+Management)
+### Settings
+![Settings Page](https://github.com/ravindusj/makinvoiz-web-app/blob/main/public/settings.png)
 
 </div>
 
