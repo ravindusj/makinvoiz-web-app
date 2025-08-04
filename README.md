@@ -4,9 +4,9 @@
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-98%25-blue?style=for-the-badge&logo=typescript)
 ![Next.js](https://img.shields.io/badge/Next.js-Framework-black?style=for-the-badge&logo=next.js)
-![Supabase](https://img.shields.io/badge/Supabase-Backend-green?style=for-the-badge&logo=supabase)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Build Status](https://img.shields.io/badge/Build-Passing-success?style=for-the-badge)
+![Supabase](https://img.shields.io/badge/Supabase-Backend-mediumseagreen?style=for-the-badge&logo=supabase)
+![Tailwind CSS](https://img.shields.io/badge/Taildwind-Styling-lightskyblue?style=for-the-badge&logo=tailwindcss)
+![License](https://img.shields.io/badge/License-MIT-orangered?style=for-the-badge)
 
 **A modern, feature-rich invoice management web application built with TypeScript & Supabase** 💼
 
@@ -32,19 +32,6 @@ MakInvoiz is a comprehensive web-based invoice management system designed to str
 - 🔒 **Secure Authentication** - Supabase Auth with JWT tokens
 - 📊 **Real-time Updates** - Live data synchronization
 - 🗄️ **PostgreSQL Database** - Robust data storage with Supabase
-
-## 🛠️ Technology Stack
-
-```typescript
-const techStack = {
-  frontend: "Next.js with TypeScript",
-  backend: "Supabase (PostgreSQL + Auth + Real-time)",
-  database: "PostgreSQL with Prisma ORM",
-  authentication: "Supabase Auth with JWT",
-  styling: "Modern CSS/TaildwindCSS",
-  architecture: "Full-stack serverless"
-};
-```
 
 ## 📦 Installation
 
