@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { ArrowLeft, Plus, Search, Eye, Edit, Trash2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
@@ -58,20 +57,7 @@ export default function QuotationListPage() {
       quotation.quotation_number.toLowerCase().includes(searchTerm.toLowerCase()),
   )
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "draft":
-        return "bg-gray-100 text-gray-800"
-      case "sent":
-        return "bg-blue-100 text-blue-800"
-      case "accepted":
-        return "bg-green-100 text-green-800"
-      case "rejected":
-        return "bg-red-100 text-red-800"
-      default:
-        return "bg-gray-100 text-gray-800"
-    }
-  }
+
 
   // Open delete confirmation dialog
   const openDeleteDialog = (id: string) => {
@@ -171,9 +157,6 @@ export default function QuotationListPage() {
                     <div className="flex-1 min-w-0 mb-3 sm:mb-0">
                       <div className="flex items-start sm:items-center justify-between sm:justify-start gap-2 sm:gap-4 mb-2 sm:mb-2">
                         <h3 className="text-base sm:text-lg font-semibold text-slate-800 truncate">{quotation.quotation_number}</h3>
-                        <Badge className={`${getStatusColor(quotation.status)} text-xs sm:text-sm shrink-0`}>
-                          {quotation.status.charAt(0).toUpperCase() + quotation.status.slice(1)}
-                        </Badge>
                       </div>
                       <div className="space-y-1 sm:space-y-0.5">
                         <p className="text-sm sm:text-base text-slate-600">Client: {quotation.client_name}</p>
